@@ -1,5 +1,5 @@
 module Transformator
-  export przekladnia, rez_2_prim, reak_2_prim, straty_uzwojen, moc_pierwotna, moc_wtorna
+  export przekladnia, rez_2_prim, reak_2_prim, straty_uzwojen, moc_pierwotna, moc_wtorna, straty_w_rdzeniu
 
   # wylicza przekładnię transformatora
   function przekladnia(e1, e2)
@@ -31,6 +31,6 @@ module Transformator
   end
 
   function straty_w_rdzeniu(e1, c)
-	e1^2 * c
+	    e1^2 * c
   end
 end
