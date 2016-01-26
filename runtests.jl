@@ -1,22 +1,22 @@
-#module Testowanie
-  using Base.Test
-  using Transformator
+using Base.Test
+using Transformator
 
-  custom_handler(r::Test.Success) = println("Test zakończony powodzeniem dla: $(r.expr)")
-  custom_handler(r::Test.Failure) = error("Test zakończony niepowodzeniem dla: $(r.expr)")
-  custom_handler(r::Test.Error) = rethrow(r)
+const e1 = 200 #siły elektromotoryczne
+const e2 = 100 #
+const R2 = 200 # w omach
+const X2 = 300 # w omach
+const i1 = 5
+const i2 = 10
 
-  @test_approx_eq przekladnia(200,100) 2
+custom_handler(r::Test.Success) = println("Test zakończony powodzeniem dla: $(r.expr)")
+custom_handler(r::Test.Failure) = error("Test zakończony niepowodzeniem dla: $(r.expr)")
+custom_handler(r::Test.Error) = rethrow(r)
 
-  Test.with_handler(custom_handler) do
-         @test przekladnia(200,100) == 2
-         @test 1 == 1
-  end
+@test_approx_eq x = przekladnia(200,100) 2
 
-  Test.with_handler(custom_handler) do
-         @test 12 == 123
-         @test 2 == 2
-  end
+@assert rez_2_prim(x, R2) == 800
 
-
-#end
+Test.with_handler(custom_handler) do
+  @test przekladnia(200,100) == 2
+  @test 1 == 1
+end

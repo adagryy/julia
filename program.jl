@@ -20,7 +20,6 @@ using Transformator
 
 # # X1, X2_prim - reaktancje rozproszeń uzwojenia pierwotnego i przeliczona na stronę pierwotną reaktancji rozproszeń uzwojenia wtórnego
 
-
   println("Przekładnia transformatora: ", x)
   println("Rezystancja uzwojenia pierwotnego: ", R2)
   println("Reaktancja rozproszeń uzwojenia pierwotnego: ", X2)
